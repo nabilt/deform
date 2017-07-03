@@ -6,14 +6,14 @@
                  category category|field.widget.category;
                  structural hidden or category == 'structural';
                  required required|field.required;"
-     class="form-group ${field.error and 'has-error' or ''} ${field.widget.item_css_class or ''} ${field.default_item_css_class()}"
+     class="form-group ${field.error and 'has-danger' or ''} ${field.widget.item_css_class or ''} ${field.default_item_css_class()}"
      title="${description}"
      id="item-${oid}"
      tal:omit-tag="structural"
      i18n:domain="deform">
 
   <label for="${oid}"
-         class="control-label ${required and 'required' or ''}"
+         class="form-control-label ${required and 'required' or ''}"
          tal:condition="not structural"
          id="req-${oid}"
          >
@@ -31,7 +31,7 @@
             tal:condition="input_append">${input_append}</span>
   </div>
 
-  <p class="help-block"
+  <p class="form-control-feedback"
      tal:define="errstr 'error-%s' % field.oid"
      tal:repeat="msg field.error.messages()"
      i18n:translate=""
